@@ -17,6 +17,7 @@
         <h1>Amberlee Salon&Spa</h1>
         <h2>Daftar Gaji Karyawan : </h2>
     </center>
+    <!-- Jika bulan dan tahun ada maka akan ditampilkan datanya -->
     <?php 
         if((isset($_GET['bulan']) && $_GET['bulan']!='') && (isset($_GET['tahun']) && $_GET['tahun']!='')){
             $bulan = $_GET['bulan'];

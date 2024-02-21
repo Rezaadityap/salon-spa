@@ -4,10 +4,9 @@ class Dashboard extends CI_Controller{
     public function __construct(){
         parent::__construct();
 
+        // Jika User belum login / user langsung mengarahkan url ke member/dashboard
         if($this->session->userdata('hak_akses')!='3'){
-            $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Anda Belum Login!</strong>
-        </div>'); 
+            $this->session->set_flashdata('massage',' Anda belum Login!'); 
         redirect('Login');
         }
     }
@@ -21,7 +20,7 @@ class Dashboard extends CI_Controller{
         $this->load->view('member/dashboard',$data);
         $this->load->view('templates/templates_member/footer',$data);
     }
-
+    // Fungsi buat menampilkan detail produk berdasarkan id
     public function detail($id){
         $data['title'] = "Detail";
         $data['amberlee'] = "Amberlee Salon&Spa";

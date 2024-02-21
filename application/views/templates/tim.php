@@ -10,7 +10,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="<?php echo base_url().'assets/photo/'.$k->photo ?>" width="600px" alt="">
+                            <img class="img-fluid" src="<?php echo base_url().'assets/photo/'.$k->photo ?>" style="width: 100%; height: 300px" alt="">
                             <div class="team-social">
                                 <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>

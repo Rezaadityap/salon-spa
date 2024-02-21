@@ -5,9 +5,7 @@ class TentangKami extends CI_Controller{
         parent::__construct();
 
         if($this->session->userdata('hak_akses')!='3'){
-            $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Anda Belum Login!</strong>
-        </div>'); 
+            $this->session->set_flashdata('massage',' Anda belum Login!'); 
         redirect('Login');
         }
     }

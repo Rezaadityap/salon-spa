@@ -71,10 +71,5 @@
     </div>
   </div>
 </div>
-
 </div>
-    
-
-  
-
 </main><!-- End #main -->

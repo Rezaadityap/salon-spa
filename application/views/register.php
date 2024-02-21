@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<?php echo base_url() ?>/assets/img/amberlee.png"/>
+	<link rel="icon" type="image/png" href="<?php echo base_url() ?>/assets/img/amberlee.png">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/assets/login/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -26,77 +26,56 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/assets/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/assets/login/css/main.css">
 <!--===============================================================================================-->
+    <link rel="stylesheet" href="<?php echo base_url() ?>/assets/js/sweetalert2.min.css">
+
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST"  action="<?php echo base_url('register/registerAksi') ?>">
-                <?php echo $this->session->flashdata('pesan') ?>  
-					<span class="login100-form-title p-b-26">
-						Buat Akun
-					</span>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter Name">
-						<input class="input100" type="text" name="nama">
-						<span class="focus-input100" data-placeholder="Masukkan Nama Kamu"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
-						<span class="focus-input100" data-placeholder="Masukkan Email Kamu"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" name="password">
-						<span class="focus-input100" data-placeholder="Masukkan Password Kamu"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter Phone Number">
-						<input class="input100" type="tel" name="no_hp">
-						<span class="focus-input100" data-placeholder="Masukkan No. Hp"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter Address">
-						<input class="input100" type="text" name="alamat">
-						<span class="focus-input100" data-placeholder="Masukkan Alamat"></span>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" name="submit" type="submit">
-								Daftar
-							</button>
-						</div>
-					</div>
-					<center><button onclick="goBack()">Kembali</button></center>
-					<script>
-    					function goBack() {
-        				window.history.back();
-    				}
-					</script>
-					<center><p><?php echo $cp ?> </p></center>
-				</form>
-	<script src="<?php echo base_url() ?>/assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url() ?>/assets/login/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url() ?>/assets/login/vendor/bootstrap/js/popper.js"></script>
-	<script src="<?php echo base_url() ?>/assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url() ?>/assets/login/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url() ?>/assets/login/vendor/daterangepicker/moment.min.js"></script>
-	<script src="<?php echo base_url() ?>/assets/login/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url() ?>/assets/login/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="<?php echo base_url() ?>/assets/login/js/main.js"></script>
-
-</body>
-</html>
+<div class="limiter">
+	<div class="container-login100">
+		<div class="wrap-login100">
+        <div class="dataFlash" data-flashdata="<?php echo $this->session->flashdata('massage'); ?>"></div>
+		<div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('pesan'); ?>"></div>					
+            <span class="login100-form-title p-b-26">
+				<?php echo $title ?>
+			</span>
+			<form class="user" method="POST" action="<?php echo base_url('register/registerAksi') ?>">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user"
+                    placeholder="Masukkan Nama" name="nama" value="<?php echo set_value('nama') ?>">
+                    <?php echo form_error('nama','<small class = "text-danger">','</small>')?>
+                </div>
+				<div class="form-group">
+                    <input type="text" class="form-control form-control-user"
+                    placeholder="Masukkan Email" name="email" value="<?php echo set_value('email') ?>">
+                    <?php echo form_error('email','<small class = "text-danger">','</small>')?>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control form-control-user"
+                    placeholder="Masukkan Password" name="password" id="password">
+                    <?php echo form_error('password','<small class = "text-danger">','</small>')?>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control form-control-user"
+                    placeholder="Ulangi Password" name="password2" id="password2">
+                </div>
+				<div class="form-group">
+                    <input type="number" class="form-control form-control-user"
+                    placeholder="Masukkan No. HP" name="no_hp" value="<?php echo set_value('no_hp') ?>">
+                    <?php echo form_error('no_hp','<small class = "text-danger">','</small>')?>
+                </div>
+				<div class="form-group">
+                    <input type="textarea" class="form-control form-control-user"
+                    placeholder="Masukkan Alamat" name="alamat" value="<?php echo set_value('alamat') ?>">
+                    <?php echo form_error('alamat','<small class = "text-danger">','</small>')?>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary btn-user btn-block mb-2">Daftar</button>
+				<a href="<?php echo base_url('login')?>" class="btn btn-secondary btn-user btn-block mb-2">Kembali</a>
+            </form>
+			<center><p> © Copyright by Amberlee</p></center>
+            <!-- JQuery -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <!-- SWAL -->
+            <script src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js"></script>
+            <script src="<?php echo base_url() ?>assets/js/sweetalert2.min.js"></script>
+            <script src="<?php echo base_url() ?>assets/js/myscript.js"></script>
